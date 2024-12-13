@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+
+  web0:
+    image: modrek
+    container_name: web0
+    command: python manage.py runserver 0.0.0.0:8080
+    build:
+      context: .
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    # env_file:
+    #   - ./.env
+    networks:
+      - app-web-net
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  celery_beat:
+    image: modrek
+    build:
+      context: .
+    container_name: celery-beat
+    command: celery -A tasks beat --loglevel=info
+    volumes:
+      - .:/app
+    networks:
+      - app-web-net
+
+  celery_worker:
+    image: modrek
+    container_name: celery-worker
+    build:
+      context: .
+    command: celery -A tasks worker --loglevel=info
+    volumes:
+      - .:/app
+    networks:
+      - app-web-net
+
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-web-net
+    volumes:
+      - .:/app
+
+networks:
+  app-web-net: 
+    driver: bridge

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'rest_framework_simplejwt',
     "django_celery_beat",
-    # "tasks"
+    "app"
 ]
 
 MIDDLEWARE = [
@@ -209,8 +209,8 @@ CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
 
 CELERY_BEAT_SCHEDULE = {
-    'hello': {
-        'task': 'tasks.tasks.hello',
-        'schedule': crontab(minute='*/1')
-    },
+    # 'hello': {
+    #     'task': 'tasks.tasks.hello',
+    #     'schedule': crontab(minute='*/1')
+    # },
 }

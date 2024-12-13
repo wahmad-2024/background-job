@@ -1,0 +1,4 @@
+2024-12-13 18:00:54 WARNING [/usr/local/lib/python3.11/site-packages/django/utils/log.py:248 - log_response] - Method Not Allowed: /api/start_job/
+2024-12-13 18:00:54 WARNING [/usr/local/lib/python3.11/site-packages/django/core/servers/basehttp.py:213 - log_message] - "POST /api/start_job/ HTTP/1.1" 405 41
+2024-12-13 18:00:55 WARNING [/usr/local/lib/python3.11/site-packages/django/utils/log.py:248 - log_response] - Method Not Allowed: /api/start_job/
+2024-12-13 18:00:55 WARNING [/usr/local/lib/python3.11/site-packages/django/core/servers/basehttp.py:213 - log_message] - "POST /api/start_job/ HTTP/1.1" 405 41

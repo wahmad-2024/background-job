@@ -1,4 +1,5 @@
-FROM python:3.11-slim as modrek
+FROM python:3.11-bookworm as modrek
+
 
 WORKDIR /app
 
